@@ -27,6 +27,9 @@ const Link: React.ForwardRefRenderFunction<HTMLElement, LinkProps> = (
     rel: rel === undefined && restProps.target === '_blank' ? 'noopener noreferrer' : rel,
   };
 
+  // https://github.com/ant-design/ant-design/issues/26622
+  delete mergedProps.navigate;
+
   return <Base {...mergedProps} ref={baseRef} ellipsis={!!ellipsis} component="a" />;
 };
 
